@@ -8,8 +8,17 @@ const loadTemperature=city=>{
 const displayTemperature=data=>{
     const temperature=document.getElementById('temperature');
     // console.log(data.main.temp);
-    temperature.innerText=data.main.temp;
-    
-   
+    temperature.innerText=data.main.temp;   
 }
+
+document.getElementById('btn-temperature').addEventListener('click',function(){
+    const SearchField=document.getElementById('Search-field');
+    const city=SearchField.value;
+    // set city
+
+    const cityName=document.getElementById('city-name');
+    cityName.innerText=city;
+    loadTemperature(city);
+
+})
 loadTemperature('dhaka');
