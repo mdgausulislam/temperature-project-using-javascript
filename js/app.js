@@ -6,9 +6,21 @@ const loadTemperature=city=>{
     .then(data=>displayTemperature(data))
 }
 const displayTemperature=data=>{
-    const temperature=document.getElementById('temperature');
+    // const temperature=document.getElementById('temperature');
+    // // console.log(data.main.temp);
+    // temperature.innerText=data.main.temp; 
+
+    setInnerTextById('temperature',data.main.temp);
+    setInnerTextById('condition',data.weather[0].main)
+    console.log(data.weather[0].main);  
+}
+
+const setInnerTextById=(id,text)=>{
+    const temperature=document.getElementById(id);
     // console.log(data.main.temp);
-    temperature.innerText=data.main.temp;   
+    temperature.innerText=text; 
+   
+
 }
 
 document.getElementById('btn-temperature').addEventListener('click',function(){
